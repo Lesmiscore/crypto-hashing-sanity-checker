@@ -6,4 +6,3 @@ Checks done are:
 - RIPEMD160
 - Elliptic multiplication on secp256k1
 - Signing
-- Creating address from these informations

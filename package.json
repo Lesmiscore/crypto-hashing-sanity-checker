@@ -1,0 +1,36 @@
+{
+  "name": "crypto-hashing-sanity-checker",
+  "version": "1.0.0",
+  "description": "Checks sanity of hashing and ECDSA operations used for Bitcoin-like cryptocurrencies.     Checks done are: - SHA256 - RIPEMD160 - Elliptic multiplication on secp256k1 - Signing - Creating address from these informations",
+  "main": "index.js",
+  "dependencies": {
+    "bitgo-utxo-lib": "^1.8.0",
+    "elliptic": "^6.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "file-loader": "^5.0.2",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "randombytes": "^2.1.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nao20010128nao/crypto-hashing-sanity-checker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nao20010128nao/crypto-hashing-sanity-checker/issues"
+  },
+  "homepage": "https://github.com/nao20010128nao/crypto-hashing-sanity-checker#readme"
+}
