@@ -2,6 +2,8 @@ const bitcoin = require("bitgo-utxo-lib");
 const elliptic = require("elliptic");
 const fixtures = require("./fixtures.json");
 
+const secp256k1 = new elliptic.ec("secp256k1");
+
 function calculate(fixture) {
   const {
     data,
@@ -45,7 +47,7 @@ function showFixture() {
   calculate(fixtures[Math.random() * fixtures.length]);
 }
 
-const onload = function(func) {
+function onload(func) {
   if (window.attachEvent) {
     window.attachEvent("onload", func);
   } else if (window.onload) {
