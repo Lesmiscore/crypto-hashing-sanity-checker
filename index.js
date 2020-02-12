@@ -1,4 +1,4 @@
-const bitcoin = require("bitgo-utxo-lib");
+const crypto = require("bitgo-utxo-lib/src/crypto");
 const elliptic = require("elliptic");
 const fixtures = require("./fixtures.json");
 
@@ -7,20 +7,14 @@ const secp256k1 = new elliptic.ec("secp256k1");
 function calculate(fixture) {
   const {
     data,
-    tests: {
-      sha256: validSha256,
-      ripemd160: validRipemd160,
-      multiply: validMultiply,
-      signing: validSigning
-    }
+    tests: { sha256: validSha256, ripemd160: validRipemd160, multiply: validMultiply, signing: validSigning }
   } = fixture;
-  const sha256 = bitcoin.crypto.sha256(data).toString("hex");
-  const ripemd160 = bitcoin.crypto.ripemd160(data).toString("hex");
+  const decoded = Buffer.from(data, "hex");
+  const sha256 = crypto.sha256(decoded).toString("hex");
+  const ripemd160 = crypto.ripemd160(decoded).toString("hex");
   const keyPair = secp256k1.keyFromPrivate(sha256, "hex");
   const multiply = keyPair.getPublic().encode("hex");
-  const signing = Buffer.from(
-    keyPair.sign("Satoshi Nakamoto").toDER()
-  ).toString("hex");
+  const signing = Buffer.from(keyPair.sign("Satoshi Nakamoto").toDER()).toString("hex");
   const display = `
 Given: ${data}
 
@@ -44,7 +38,7 @@ Result: ${signing}
 }
 
 function showFixture() {
-  calculate(fixtures[Math.random() * fixtures.length]);
+  calculate(fixtures[parseInt(Math.random() * fixtures.length)]);
 }
 
 function onload(func) {
@@ -60,7 +54,7 @@ function onload(func) {
   } else {
     window.onload = func;
   }
-};
+}
 onload(() => {
   setTimeout(showFixture, 0);
   document.getElementById("testanother").addEventListener("click", showFixture);
