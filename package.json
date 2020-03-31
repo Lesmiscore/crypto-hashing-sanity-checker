@@ -14,7 +14,7 @@
     "eslint": "6.8.0",
     "file-loader": "6.0.0",
     "husky": "4.2.3",
-    "lint-staged": "10.1.0",
+    "lint-staged": "10.1.1",
     "prettier": "2.0.2",
     "randombytes": "2.1.0",
     "webpack": "4.42.1",
