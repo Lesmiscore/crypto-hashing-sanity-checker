@@ -15,7 +15,7 @@
     "file-loader": "6.0.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
-    "prettier": "2.0.5",
+    "prettier": "2.1.0",
     "randombytes": "2.1.0",
     "webpack": "4.44.1",
     "webpack-cli": "3.3.12"
