@@ -8,7 +8,7 @@
     "elliptic": "^6.5.4"
   },
   "devDependencies": {
-    "@babel/core": "7.13.10",
+    "@babel/core": "7.13.13",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.2.2",
     "eslint": "7.22.0",
